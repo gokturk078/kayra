@@ -1,0 +1,231 @@
+/*
+ * KAYRA'S 18TH BIRTHDAY - COMPONENT STYLES
+ */
+
+/* GATEWAY (LEVEL 18 INTRO) */
+.gateway {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.gateway.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.gateway-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px) brightness(0.4);
+    transform: scale(1.1);
+    opacity: 0;
+    animation: gatewayBgFadeIn 1.5s ease 0.5s forwards;
+}
+
+.gateway-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.7) 0%, rgba(10, 10, 15, 0.9) 100%);
+}
+
+.gateway-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: gatewayContentFadeIn 0.8s ease 1.5s forwards;
+}
+
+.gateway-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--bg-glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--neon-cyan);
+    margin-bottom: 2rem;
+}
+
+.gateway-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.gateway-title .level {
+    display: block;
+    font-size: 0.4em;
+    color: var(--text-muted);
+    letter-spacing: 0.3em;
+    margin-bottom: 0.5rem;
+}
+
+.gateway-title .number {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 30px var(--neon-pink-glow));
+}
+
+.gateway-achievement {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--bg-glass);
+    border: 2px solid var(--neon-purple);
+    border-radius: 1rem;
+    margin: 2rem 0;
+    box-shadow: 0 0 30px var(--neon-purple-glow);
+}
+
+.gateway-achievement-icon {
+    font-size: 1.875rem;
+}
+
+.gateway-achievement-text {
+    text-align: left;
+}
+
+.gateway-achievement-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.gateway-achievement-value {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--neon-yellow);
+}
+
+.gateway-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
+    background: var(--gradient-primary);
+    border-radius: 9999px;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.gateway-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+.gateway-question {
+    margin-top: 2rem;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+}
+
+/* NAVIGATION */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    padding: 1rem 0;
+    background: transparent;
+    transition: background var(--transition-base), padding var(--transition-base);
+}
+
+.nav.scrolled {
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 150ms ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-base);
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: transform 150ms ease;
+}
